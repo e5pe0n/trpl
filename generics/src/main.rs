@@ -1,4 +1,6 @@
-fn largest<T>(list: &[T]) -> T {
+use generics::Pair;
+
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
 
     for &item in list {
@@ -16,4 +18,7 @@ fn main() {
 
     let char_list = vec!['y', 'm', 'a', 'q'];
     println!("The largest char is {}", largest(&char_list));
+
+    let p = Pair::new(1, 2);
+    p.cmp_display();
 }
